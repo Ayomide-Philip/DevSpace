@@ -7,7 +7,6 @@
     "Backend"
   ],
   "scripts": {
-    "postinstall": "cd frontend && npm install && npm run build && cd ../Backend && npm install",
     "start": "node Backend/index.js",
     "dev": "concurrently \"cd frontend && npm run dev\" \"cd Backend && nodemon index.js\""
   },
