@@ -54,6 +54,6 @@ app.use(errorHandler);
 
 // Start server
 app.listen(PORT || 3000, async () => {
-  await connectToMongoDB();
+  // await connectToMongoDB(); // Commented for testing without DB
   console.log(`Server running at http://localhost:${PORT || 3000}`);
 });
