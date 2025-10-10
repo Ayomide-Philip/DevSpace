@@ -5,6 +5,7 @@ import Bio from "../../../Componets/Dashboard/bio";
 import SettingGrid from "../../../Componets/Dashboard/settingGrid";
 import AboutMe from "../../../Componets/Dashboard/aboutMe";
 import ProjectCard from "../../../Componets/projectCard";
+import { VITE_API_URL } from "../../../config";
 
 export default function ProfileId() {
   const { profile } = useLoaderData();
@@ -35,7 +36,7 @@ export default function ProfileId() {
 export async function ProfileIdLoader({ params }) {
   const { id } = params;
   try {
-    const request = await fetch(`http://localhost:3000/profile/${id}`, {
+    const request = await fetch(`${VITE_API_URL}/profile/${id}`, {
       method: "GET",
       credentials: "include",
       headers: {

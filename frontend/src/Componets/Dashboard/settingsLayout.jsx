@@ -1,6 +1,7 @@
 import { Outlet, useLoaderData, useRouteLoaderData } from "react-router";
 import SettingsBanner from "./settingBanner";
 import Bio from "./bio";
+import { VITE_API_URL } from "../../config";
 
 export default function SettingLayout() {
   const { users } = useRouteLoaderData("feeds");
@@ -19,7 +20,7 @@ export default function SettingLayout() {
 
 export async function ProfileLoader() {
   try {
-    const request = await fetch("http://localhost:3000/profile/me", {
+    const request = await fetch(`${VITE_API_URL}/profile/me`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

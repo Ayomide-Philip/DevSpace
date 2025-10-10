@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
+import { VITE_API_URL } from "../../config";
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = VITE_API_URL;
 
 const FeedItem = ({ feed }) => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");

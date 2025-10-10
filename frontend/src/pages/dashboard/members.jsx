@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import MemberCard from "../../Componets/Dashboard/members/memberCard";
 import { useLoaderData } from "react-router";
 import { useState } from "react";
+import { VITE_API_URL } from "../../config";
 
 export default function Members() {
   const { profile } = useLoaderData();
@@ -30,7 +31,7 @@ export default function Members() {
 
 export async function MemberLoader() {
   try {
-    const request = await fetch("http://localhost:3000/profile", {
+    const request = await fetch(`${VITE_API_URL}/profile`, {
       headers: {
         "Content-Type": "application/json",
       },

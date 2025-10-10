@@ -2,6 +2,7 @@ import { Camera } from "lucide-react";
 import { useRef } from "react";
 import { useLocation } from "react-router";
 import handlePictureUpload from "../../libs/handlePictureUpload";
+import { VITE_API_URL } from "../../config";
 
 export default function SettingsBanner({ users }) {
   const backgroundPicture = useRef();
@@ -35,7 +36,7 @@ export default function SettingsBanner({ users }) {
               onChange={(e) => {
                 handlePictureUpload({
                   image: e.target.files[0],
-                  url: "http://localhost:3000/auth/upload/background",
+                  url: `${VITE_API_URL}/auth/upload/background`,
                   placeholder: "backgroundPic",
                 });
               }}
@@ -72,7 +73,7 @@ export default function SettingsBanner({ users }) {
                 onChange={(e) => {
                   handlePictureUpload({
                     image: e.target.files[0],
-                    url: "http://localhost:3000/auth/upload/profile ",
+                    url: `${VITE_API_URL}/auth/upload/profile`,
                     placeholder: "profilePic",
                   });
                 }}

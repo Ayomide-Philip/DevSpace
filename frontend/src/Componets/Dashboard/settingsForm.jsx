@@ -4,6 +4,7 @@ import Skills from "./form/skills";
 import SocialMedia from "./form/socialMedia";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { VITE_API_URL } from "../../config";
 export default function SettingsForm() {
   const {
     users: { name, email },
@@ -155,7 +156,7 @@ export async function SettingsFormAction({ request }) {
   const skills = formData.getAll("skills[]");
   const tools = formData.getAll("tools[]");
 
-  const doesProfileExist = await fetch("http://localhost:3000/profile/me", {
+  const doesProfileExist = await fetch(`${VITE_API_URL}/profile/me`, {
     credentials: "include",
   });
 
@@ -163,7 +164,7 @@ export async function SettingsFormAction({ request }) {
 
   if (!profileExist.success) {
     try {
-      const req = await fetch("http://localhost:3000/profile", {
+      const req = await fetch(`${VITE_API_URL}/profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -194,7 +195,7 @@ export async function SettingsFormAction({ request }) {
     }
   }
 
-  const editUser = await fetch("http://localhost:3000/profile", {
+  const editUser = await fetch(`${VITE_API_URL}/profile`, {
     method: "PATCH",
     body: JSON.stringify({
       role: category,

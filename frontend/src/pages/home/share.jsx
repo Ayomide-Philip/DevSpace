@@ -1,5 +1,6 @@
 import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 import { useLoaderData } from "react-router";
+import { VITE_API_URL } from "../../config";
 
 export default function Share() {
   const data = useLoaderData();
@@ -133,7 +134,7 @@ export default function Share() {
 export async function ShareLoader({ params }) {
   const { id } = params;
   try {
-    const request = await fetch(`http://localhost:3000/profile/${id}`, {
+    const request = await fetch(`${VITE_API_URL}/profile/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
