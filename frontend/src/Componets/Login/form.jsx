@@ -2,6 +2,7 @@ import { Form, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Eye, EyeClosed, Loader2, Mail, Lock } from "lucide-react";
 import { useState } from "react";
+import { VITE_API_URL } from "../../config";
 
 export default function LoginForm() {
   const [viewPassword, setViewPassword] = useState(false);
@@ -147,7 +148,7 @@ export async function LoginFormAction({ request }) {
   const password = formData.get("password");
 
   try {
-    const req = await fetch("http://localhost:3000/auth/signin", {
+    const req = await fetch(`${VITE_API_URL}/auth/signin`, {
       method: "post",
       body: JSON.stringify({ email, password }),
       credentials: "include",
@@ -186,7 +187,7 @@ export async function LoginFormAction({ request }) {
 
 export async function LoginLoader() {
   try {
-    const request = await fetch("http://localhost:3000/auth/loggedIn", {
+    const request = await fetch(`${VITE_API_URL}/auth/loggedIn`, {
       headers: {
         "Content-Type": "application/json",
       },

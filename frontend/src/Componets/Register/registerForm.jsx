@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Eye, EyeClosed, Loader2, Mail, Lock, User } from "lucide-react";
+import { VITE_API_URL } from "../../config";
 
 export default function RegisterForm() {
   const [viewPassword, setViewPassword] = useState(false);
@@ -231,7 +232,7 @@ export async function RegisterFormAction({ request }) {
   const password = formData.get("password");
 
   try {
-    const req = await fetch("http://localhost:3000/auth/signup", {
+    const req = await fetch(`${VITE_API_URL}/auth/signup`, {
       headers: {
         "Content-Type": "application/json",
       },

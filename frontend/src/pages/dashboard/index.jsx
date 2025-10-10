@@ -3,9 +3,9 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import FeedsInput from "../../Componets/Dashboard/FeedsInput";
 import FeedList from "../../Componets/Dashboard/FeedList";
+import { VITE_API_URL } from "../../config";
 
-
-const API_URL = 'http://localhost:3000/api';
+const API_URL = VITE_API_URL;
 
 export default function FeedsHome() {
   const [feeds, setFeeds] = useState([]);
