@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import {
   Contact2,
@@ -24,27 +25,28 @@ export default function RootHeader() {
   return (
     <>
       <div className="bg-gray-950 text-white h-20 flex items-center justify-between">
-        <div className="flex">
+        <div className="flex justify-center items-center">
           <img
             alt="logo"
             src="/images/logo-bg.png"
             className="h-12 w-12 rounded-full"
           />
+          <span className="font-bold text-xl md:text-2xl">D3V++</span>
         </div>
         <div className="flex mx-3 justify-center items-center gap-3">
           <div className="sm:flex sm:gap-4">
-            <a
+            <Link
               className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
               href="/login"
             >
               Login
-            </a>
-            <a
+            </Link>
+            <Link
               className="hidden sm:block rounded-md bg-white/20 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/30"
               href="/register"
             >
               Register
-            </a>
+            </Link>
           </div>
           <div className="flex">
             <button

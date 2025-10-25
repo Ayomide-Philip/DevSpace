@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import Link from "next/link";
 
 export default function MobileNavBar({
   navbarLink,
@@ -28,27 +29,27 @@ export default function MobileNavBar({
 
           <nav className="space-y-4">
             {navbarLink.map(({ path, name }, idx) => (
-              <a
+              <Link
                 key={idx}
                 href={path}
                 className="block text-lg font-medium hover:text-teal-400 transition"
               >
                 {name}
-              </a>
+              </Link>
             ))}
             <div className="mt-6 space-y-2">
-              <a
+              <Link
                 href="/login"
                 className="block w-full text-center rounded-md bg-teal-600 px-4 py-2 text-white font-medium hover:bg-teal-500"
               >
                 Login
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/register"
                 className="block w-full text-center rounded-md bg-white/10 px-4 py-2 font-medium hover:bg-white/20"
               >
                 Register
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
