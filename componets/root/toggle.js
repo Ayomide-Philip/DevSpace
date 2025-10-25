@@ -23,7 +23,7 @@ export default function Toggle() {
       onClick={() => {
         setTheme(resolvedTheme === "dark" ? "light" : "dark");
       }}
-      className="p-3 rounded-full dark:bg-gray-800 flex justify-center items-center fixed right-4 bottom-7 border cursor-pointer"
+      className="p-3 rounded-full bg-white dark:bg-gray-800 flex justify-center items-center fixed right-4 bottom-7 border cursor-pointer"
     >
       {resolvedTheme === "dark" ? (
         <Sun className="dark:text-white h-7 w-7" />

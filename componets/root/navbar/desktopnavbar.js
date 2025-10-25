@@ -1,7 +1,7 @@
 import Link from "next/link";
 export default function DesktopNavBar({ navbarLink }) {
   return (
-    <div className="dark:bg-gray-800 bg-gray-100 border-gray-600 border fixed bottom-1 left-1/2 transform -translate-1/2 hidden md:flex rounded-2xl">
+    <div className="dark:bg-gray-800 bg-gray-100 z-10 border-gray-600 border fixed bottom-1 left-1/2 transform -translate-1/2 hidden md:flex rounded-2xl">
       <div className="flex gap-2 dark:text-white">
         {navbarLink.map(({ path, name, icon: Icon }, idx) => {
           return (

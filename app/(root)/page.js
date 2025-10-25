@@ -1,7 +1,9 @@
+import HeroSection from "@/componets/root/home/herosection";
+
 export default function Home() {
   return (
     <>
-      <h1 className="dark:text-red-500 text-black">Hello world</h1>
+      <HeroSection />
     </>
   );
 }
