@@ -1,10 +1,21 @@
 "use client";
 import { Eye, EyeClosed, Github, Lock, Mail, User } from "lucide-react";
 import Form from "next/form";
-import { useState } from "react";
+import { use, useActionState, useEffect, useState } from "react";
+import RegisterAction from "./action";
+import { toast } from "react-toastify";
 
 export default function Page() {
   const [viewPassword, setViewPassword] = useState(false);
+  const [state, formAction] = useActionState(RegisterAction, {
+    message: "",
+  });
+
+  useEffect(() => {
+    if (state.message) {
+      toast(state.message);
+    }
+  }, [state]);
   return (
     <div className="w-full max-w-md bg-white dark:bg-gray-800 py-4 px-4 shadow-xl rounded-xl sm:px-10 sm:py-8">
       <div className="text-center mb-8">
@@ -16,7 +27,7 @@ export default function Page() {
         </p>
       </div>
 
-      <Form className="w-full flex flex-col gap-4">
+      <Form className="w-full flex flex-col gap-4" action={formAction}>
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="name"
@@ -35,9 +46,6 @@ export default function Page() {
               required
             />
           </div>
-          {/* {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-          )} */}
         </div>
 
         <div className="flex items-start flex-col justify-start">
@@ -58,9 +66,6 @@ export default function Page() {
               required
             />
           </div>
-          {/* {errors.username && (
-            <p className="mt-1 text-sm text-red-600">{errors.username}</p>
-          )} */}
         </div>
 
         <div className="flex items-start flex-col justify-start">
@@ -81,9 +86,6 @@ export default function Page() {
               required
             />
           </div>
-          {/* {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-          )} */}
         </div>
 
         <div className="flex items-start flex-col justify-start">
@@ -113,9 +115,6 @@ export default function Page() {
               {viewPassword ? <EyeClosed /> : <Eye />}
             </button>
           </div>
-          {/* {errors.password && (
-            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
-          )} */}
         </div>
 
         <div className="flex items-start flex-col justify-start">
@@ -136,17 +135,12 @@ export default function Page() {
               required
             />
           </div>
-          {/* {errors.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600">
-              {errors.confirmPassword}
-            </p>
-          )} */}
         </div>
 
         <button
           type="submit"
           //   disabled={loading}
-          className="bg-teal-600 cursor-pointer hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-xl shadow-sm hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100 flex justify-center items-center"
+          className="bg-teal-600  hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-xl shadow-sm hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100 flex justify-center items-center cursor-pointer"
         >
           {/* {loading ? (
             <>
