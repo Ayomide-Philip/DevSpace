@@ -33,6 +33,9 @@ export default function MobileNavBar({
                 key={idx}
                 href={path}
                 className="block text-lg font-medium hover:text-teal-400 transition"
+                onClick={() => {
+                  setOpenNavbar(false);
+                }}
               >
                 {name}
               </Link>
