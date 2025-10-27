@@ -4,6 +4,8 @@ import Form from "next/form";
 import { use, useActionState, useEffect, useState } from "react";
 import RegisterAction from "./action";
 import { toast } from "react-toastify";
+import { CgGoogle } from "react-icons/cg";
+import OauthButton from "@/componets/root/oauth";
 
 export default function Page() {
   const [viewPassword, setViewPassword] = useState(false);
@@ -157,16 +159,7 @@ export default function Page() {
       <span className="mt-3 text-center w-full flex justify-center items-center dark:text-white">
         Or
       </span>
-      <div className="flex mt-4 gap-5">
-        <button className="bg-white hover:bg-teal-600 border border-teal-600 hover:text-white w-1/2 p-2 text-teal-600 rounded-full flex justify-center gap-2 items-center cursor-pointer">
-          <Github />
-          <span>Github</span>
-        </button>
-        <button className="bg-teal-600 hover:bg-white border border-teal-600 hover:text-teal-600 w-1/2 p-2 text-white rounded-full flex justify-center gap-2 items-center cursor-pointer">
-          <Github />
-          <span>Github</span>
-        </button>
-      </div>
+      <OauthButton />
 
       <div className="mt-4 text-center">
         <span className="text-sm text-gray-600 dark:text-gray-400">

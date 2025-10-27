@@ -5,12 +5,16 @@ import { useEffect, useState } from "react";
 import { LoginAction } from "./action";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
+import Google from "next-auth/providers/google";
+import { CgGoogle } from "react-icons/cg";
+import OauthButton from "@/componets/root/oauth";
 
 export default function Page() {
   const searchParams = useSearchParams();
   useEffect(() => {
     if (searchParams.get("error") === "CredentialsSignin") {
       toast.error("Invalid Credentials. Please try again.");
+
       return;
     } else if (searchParams.get("error")) {
       toast.error("Something went wrong. Please try again.");
@@ -105,16 +109,7 @@ export default function Page() {
       <span className="mt-3 text-center w-full flex justify-center items-center dark:text-white">
         Or
       </span>
-      <div className="flex mt-4 gap-5">
-        <button className="bg-white hover:bg-teal-600 border border-teal-600 hover:text-white w-1/2 p-2 text-teal-600 rounded-full flex justify-center gap-2 items-center cursor-pointer">
-          <Github />
-          <span>Github</span>
-        </button>
-        <button className="bg-teal-600 hover:bg-white border border-teal-600 hover:text-teal-600 w-1/2 p-2 text-white rounded-full flex justify-center gap-2 items-center cursor-pointer">
-          <Github />
-          <span>Github</span>
-        </button>
-      </div>
+      <OauthButton />
 
       <div className="mt-5 text-center space-y-4 px-4">
         <a
