@@ -1,5 +1,5 @@
 "use client";
-import { LoaderPinwheel, Moon, Sun } from "lucide-react";
+import { Loader, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -14,7 +14,7 @@ export default function Toggle() {
   if (!loaded)
     return (
       <button className="p-3 rounded-full dark:bg-gray-800 flex justify-center items-center fixed right-4 bottom-4 border">
-        <LoaderPinwheel className="dark:text-white h-7 w-7" />
+        <Loader className="dark:text-white h-7 w-7" />
       </button>
     );
 

@@ -1,27 +1,27 @@
 "use client";
-import { Eye, EyeClosed, Github, Lock, Mail } from "lucide-react";
+import { Eye, EyeClosed, Loader, Lock, LogIn, Mail } from "lucide-react";
 import Form from "next/form";
 import { useEffect, useState } from "react";
 import { LoginAction } from "./action";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
-import Google from "next-auth/providers/google";
-import { CgGoogle } from "react-icons/cg";
 import OauthButton from "@/componets/root/oauth";
 
 export default function Page() {
   const searchParams = useSearchParams();
+
   useEffect(() => {
     if (searchParams.get("error") === "CredentialsSignin") {
       toast.error("Invalid Credentials. Please try again.");
-
       return;
     } else if (searchParams.get("error")) {
       toast.error("Something went wrong. Please try again.");
       return;
     }
   }, [searchParams]);
+
   const [viewPassword, setViewPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="w-full max-w-md bg-white dark:bg-gray-800 py-4 px-4 shadow-xl rounded-xl sm:px-10 sm:py-8">
@@ -34,7 +34,13 @@ export default function Page() {
         </p>
       </div>
 
-      <Form className="space-y-6" action={LoginAction}>
+      <Form
+        className="space-y-6"
+        action={LoginAction}
+        onSubmit={() => {
+          setLoading(true);
+        }}
+      >
         <div>
           <label
             className="block text-sm font-medium text-gray-900 dark:text-white"
@@ -53,9 +59,6 @@ export default function Page() {
               required
             />
           </div>
-          {/* {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-          )} */}
         </div>
 
         <div>
@@ -84,25 +87,24 @@ export default function Page() {
               {viewPassword ? <EyeClosed /> : <Eye />}
             </div>
           </div>
-          {/* {errors.password && (
-            <p className="mt-1 text-sm text-red-600">{errors.password}</p>
-          )} */}
         </div>
 
         <button
           type="submit"
-          //   disabled={loading}
-          className="w-full flex justify-center items-center py-2 px-4 sm:py-3 border border-transparent rounded-xl shadow-sm text-sm sm:text-base font-medium text-white bg-teal-600 hover:bg-teal-700 hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100"
+          disabled={loading}
+          className="w-full flex justify-center items-center py-2 px-4 sm:py-3 border border-transparent rounded-xl shadow-sm text-sm sm:text-base font-medium text-white bg-teal-600 hover:bg-teal-700 hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
         >
-          Login
-          {/* {loading ? (
+          {loading ? (
             <>
               <Loader className="animate-spin mr-2 h-5 w-5" />
               Signing in...
             </>
           ) : (
-            "Sign In"
-          )} */}
+            <>
+              <LogIn className="mr-2 h-5 w-5" />
+              Login
+            </>
+          )}
         </button>
       </Form>
 

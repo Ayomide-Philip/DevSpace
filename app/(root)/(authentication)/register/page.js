@@ -1,5 +1,5 @@
 "use client";
-import { Eye, EyeClosed, Github, Lock, Mail, User } from "lucide-react";
+import { Eye, EyeClosed, Github, Loader, Lock, Mail, User } from "lucide-react";
 import Form from "next/form";
 import { use, useActionState, useEffect, useState } from "react";
 import RegisterAction from "./action";
@@ -9,15 +9,19 @@ import OauthButton from "@/componets/root/oauth";
 
 export default function Page() {
   const [viewPassword, setViewPassword] = useState(false);
+  const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [state, formAction] = useActionState(RegisterAction, {
     message: "",
   });
 
   useEffect(() => {
     if (state.message) {
-      toast(state.message);
+      toast.error(state.message);
     }
+    setLoading(false);
   }, [state]);
+
   return (
     <div className="w-full max-w-md bg-white dark:bg-gray-800 py-4 px-4 shadow-xl rounded-xl sm:px-10 sm:py-8">
       <div className="text-center mb-8">
@@ -29,7 +33,13 @@ export default function Page() {
         </p>
       </div>
 
-      <Form className="w-full flex flex-col gap-4" action={formAction}>
+      <Form
+        className="w-full flex flex-col gap-4"
+        action={formAction}
+        onSubmit={() => {
+          setLoading(true);
+        }}
+      >
         <div className="flex items-start flex-col justify-start">
           <label
             htmlFor="name"
@@ -131,28 +141,36 @@ export default function Page() {
             <input
               id="confirmPassword"
               name="confirmPassword"
-              type="password"
+              type={viewConfirmPassword ? "text" : "password"}
               placeholder="Confirm your Password"
               className={`block w-full pl-10 pr-3 py-2 rounded-lg border bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 border-gray-300 dark:border-gray-600`}
               required
             />
+            <button
+              type="button"
+              className="absolute right-2 transform top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 dark:text-gray-400"
+              onClick={() => {
+                setViewConfirmPassword(!viewPassword);
+              }}
+            >
+              {viewConfirmPassword ? <EyeClosed /> : <Eye />}
+            </button>
           </div>
         </div>
 
         <button
           type="submit"
-          //   disabled={loading}
+          disabled={loading}
           className="bg-teal-600  hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-xl shadow-sm hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:bg-teal-400 disabled:cursor-not-allowed disabled:hover:scale-100 flex justify-center items-center cursor-pointer"
         >
-          {/* {loading ? (
+          {loading ? (
             <>
               <Loader className="animate-spin mr-2 h-5 w-5" />
               Registering...
             </>
           ) : (
             "Register"
-          )} */}
-          Register
+          )}
         </button>
       </Form>
 
