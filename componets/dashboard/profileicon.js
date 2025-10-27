@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 export default function ProfileIcon() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
@@ -30,7 +31,14 @@ export default function ProfileIcon() {
               </Link>
             </li>
             <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-              <button>Logout</button>
+              <a
+                onClick={() => {
+                   signOut({callbackUrl:"/login"});
+                }}
+              >
+                Logout
+              </a>
+
             </li>
           </ul>
         </div>
