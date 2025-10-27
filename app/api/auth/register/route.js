@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import ConnectToDatabase from "@/libs/database";
 import User from "@/libs/models/user.models";
 import { HashPassword } from "@/libs/utility/hashpassword";
 
@@ -41,8 +40,6 @@ export async function POST(request) {
       }
     );
   }
-
-  await ConnectToDatabase();
 
   try {
     const existingEmail = await User.findOne({ email: email });
