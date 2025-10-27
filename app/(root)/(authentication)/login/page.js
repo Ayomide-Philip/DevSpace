@@ -1,9 +1,24 @@
 "use client";
 import { Eye, EyeClosed, Github, Lock, Mail } from "lucide-react";
 import Form from "next/form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { LoginAction } from "./action";
+import { useSearchParams } from "next/navigation";
+import { toast } from "react-toastify";
+
 export default function Page() {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get("error") === "CredentialsSignin") {
+      toast.error("Invalid Credentials. Please try again.");
+      return;
+    } else if (searchParams.get("error")) {
+      toast.error("Something went wrong. Please try again.");
+      return;
+    }
+  }, [searchParams]);
   const [viewPassword, setViewPassword] = useState(false);
+
   return (
     <div className="w-full max-w-md bg-white dark:bg-gray-800 py-4 px-4 shadow-xl rounded-xl sm:px-10 sm:py-8">
       <div className="text-center mb-8">
@@ -15,7 +30,7 @@ export default function Page() {
         </p>
       </div>
 
-      <Form className="space-y-6">
+      <Form className="space-y-6" action={LoginAction}>
         <div>
           <label
             className="block text-sm font-medium text-gray-900 dark:text-white"
