@@ -23,12 +23,12 @@ export default function Toggle() {
       onClick={() => {
         setTheme(resolvedTheme === "dark" ? "light" : "dark");
       }}
-      className="p-3 rounded-full bg-white dark:bg-gray-800 flex justify-center items-center fixed right-4 bottom-7 border cursor-pointer z-10"
+      className="p-3 rounded-full dark:bg-white bg-gray-800 flex justify-center items-center fixed right-4 bottom-7 border cursor-pointer z-10"
     >
       {resolvedTheme === "dark" ? (
-        <Sun className="dark:text-white h-7 w-7" />
+        <Sun className="dark:text-black text-white h-7 w-7" />
       ) : (
-        <Moon className="dark:text-white h-7 w-7" />
+        <Moon className="dark:text-black text-white h-7 w-7" />
       )}
     </button>
   );
