@@ -30,15 +30,13 @@ export default function ProfileIcon() {
                 Settings
               </Link>
             </li>
-            <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-              <a
-                onClick={() => {
-                   signOut({callbackUrl:"/login"});
-                }}
-              >
-                Logout
-              </a>
-
+            <li
+              className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all"
+              onClick={() => {
+                signOut({ callbackUrl: "/login" });
+              }}
+            >
+              <a>Logout</a>
             </li>
           </ul>
         </div>

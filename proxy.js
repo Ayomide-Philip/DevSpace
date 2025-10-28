@@ -11,6 +11,10 @@ export default async function Proxy(req) {
   if (!session) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
+
+  if(!session.user) {
+      return NextResponse.redirect(new URL("/login", req.url));
+  }
   return NextResponse.next();
 }
 
