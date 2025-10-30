@@ -7,7 +7,7 @@ export default async function Layout({ children }) {
   if (!session || !session?.user) return redirect("/login");
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-[22%_50%_22%] justify-center dark:bg-gray-900 dark:text-white  gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-[22%_50%_22%] justify-center dark:bg-gray-900 dark:text-white  gap-2">
         <LeftSideBar />
         {children}
         <RightSidebar />

@@ -1,7 +1,7 @@
 export default async function Page() {
   return (
-    <div className="py-3 flex flex-col">
-      <div className="text-lg self-center text-gray-900 w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 items-center">
+    <div className="p-3 flex flex-col">
+      <div className="text-lg self-center text-gray-900 w-full md:w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 items-center">
         <img
           src="/images/blank-profile-picture-973460_960_720.webp"
           alt=""
@@ -9,9 +9,9 @@ export default async function Page() {
         />
         <div className="flex w-full h-full border rounded-full p-1">
           <input
-            className="h-full w-full outline-none px-3"
+            className="h-full w-full outline-none px-3 placeholder:text-gray-800 dark:placeholder:text-gray-300"
             type="text"
-            placeholder="What's on your mind?"
+            placeholder="What's are you building today?"
           />
         </div>
       </div>

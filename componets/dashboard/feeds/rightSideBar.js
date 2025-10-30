@@ -2,7 +2,7 @@ import { MessageCircleDashed } from "lucide-react";
 import Link from "next/link";
 export default function RightSidebar() {
   return (
-    <div className="md:flex flex-col gap-y-3  justify-center py-3 hidden h-fit w-full">
+    <div className="lg:flex flex-col gap-y-3  justify-center py-3 hidden h-fit w-full">
       <div className="dark:bg-gray-800 bg-gray-200 p-3 rounded-xl w-full">
         <div className="flex justify-between items-center mb-2">
           <h1 className="font-bold">All Members</h1>

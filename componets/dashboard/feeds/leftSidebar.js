@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LeftSideBar() {
   return (
-    <div className="md:flex justify-center flex-col py-3 hidden h-fit w-full gap-y-4">
+    <div className="lg:flex justify-center flex-col py-3 hidden h-fit w-full gap-y-4">
       <div className="dark:bg-gray-800  bg-gray-200 p-3 rounded-xl">
         <div className="flex flex-col justify-center items-center w-full gap-y-1">
           <img
