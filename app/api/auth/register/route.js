@@ -7,7 +7,7 @@ export async function POST(request) {
 
   if (!name || !name.trim()) {
     return NextResponse.json(
-      { message: "Please enter a email email address" },
+      { message: "Please enter a your name" },
       {
         status: 400,
       }
