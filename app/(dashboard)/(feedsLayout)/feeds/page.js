@@ -2,7 +2,7 @@ import { MessageCircleIcon, Share, ThumbsUp } from "lucide-react";
 
 export default async function Page() {
   return (
-    <div className="p-3 flex flex-col gap-5">
+    <>
       <div className="text-sm self-center text-gray-900 w-full md:w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 items-center">
         <img
           src="/images/blank-profile-picture-973460_960_720.webp"
@@ -207,6 +207,6 @@ export default async function Page() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
