@@ -18,6 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const { email, password } = credentials;
           const userExist = await User.findOne({ email });
           if (!userExist) {
+            console.log("User not found");
             throw new Error("User not found!");
           }
 
