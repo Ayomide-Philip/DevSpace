@@ -1,8 +1,9 @@
-import { Search } from "lucide-react";
+import { Search, Share } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="p-2 flex flex-col gap-3">
+    <div className="p-2 flex flex-col gap-3 mb-20 md:mb-30">
       <div className="flex mt-3 justify-center">
         <div className="flex md:w-2xl dark:border-white border rounded-full h-10 relative">
           <input
@@ -31,7 +32,7 @@ export default function Page() {
                     className="h-[200px] md:h-[250px] w-full object-cover rounded-t-xl"
                     alt=""
                   />
-                  <div className="absolute -bottom-7 left-3 md:-bottom-9 md:left-3">
+                  <div className="absolute -bottom-13 left-3 md:-bottom-13 md:left-3">
                     <img
                       src="/images/blank-profile-picture-973460_960_720.webp"
                       alt=""
@@ -39,11 +40,35 @@ export default function Page() {
                     />
                   </div>
                 </div>
-                <div className="pl-22 md:pl-25 flex flex-col">
-                  <h1 className="text-base md:text-xl">Areo Ayomide Philip</h1>
-                  <span className="text-[12px] md:text-[13px]">
-                    Full-Stack Developer
-                  </span>
+                <div className="pl-22 md:pl-25 mt-1 flex justify-between items-center pr-3">
+                  <div className="flex flex-col">
+                    <h1 className="text-base md:text-xl font-bold">
+                      Areo Ayomide Philip
+                    </h1>
+                    <span className="text-[12px] md:text-[13px]">
+                      Full-Stack Developer
+                    </span>
+                  </div>
+                  <div className="flex">
+                    <Share className="w-5 h-5" />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2 px-4 mt-2">
+                  <p className="text-sm md:text-base">
+                    lorem ipsum to isy eioaae lorem ipsum to isy eioaae lorem
+                    ipsum to isy eioaae lorem ipsum to isy eioaae lorem ipsum to
+                    isy eioaae lorem ipsum to isy eioaae lorem ipsum to isy
+                    eioaae lorem ipsum to isy eioaae lorem ipsum to isy eioaae
+                    lorem ipsum to isy eioaae lorem ipsum to isy eioaae
+                  </p>
+                  <div className="flex justify-end">
+                    <Link
+                      href="#"
+                      className="bg-blue-600 text-sm text-white hover:bg-blue-800 px-4 py-2 rounded-2xl"
+                    >
+                      View Profile
+                    </Link>
+                  </div>
                 </div>
               </div>
             );
