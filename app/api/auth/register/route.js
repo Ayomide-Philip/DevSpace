@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import User from "@/libs/models/user.models";
 import { HashPassword } from "@/libs/utility/hashpassword";
+import ConnectToDatabase from "@/libs/database";
 
 export async function POST(request) {
   const { email, password, username, name } = await request.json();
@@ -42,6 +43,7 @@ export async function POST(request) {
   }
 
   try {
+      await ConnectToDatabase();
     const existingEmail = await User.findOne({ email: email });
 
     if (existingEmail) {
