@@ -4,8 +4,9 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="p-2 flex flex-col gap-3 mb-20 md:mb-30">
-      <div className="flex mt-3 justify-center">
-        <div className="flex md:w-2xl dark:border-white border rounded-full h-10 relative">
+      <h1 className="text-center text-2xl font-bold">All Members</h1>
+      <div className="flex mb-5 justify-center">
+        <div className="flex sm:w-2xl dark:border-white border rounded-full h-10 relative">
           <input
             type="text"
             className="outline-none p-3 w-full"
@@ -18,7 +19,6 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col">
-        <h1 className="text-center text-2xl font-bold mb-5">All Members</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-center items-center px-2 md:px-5">
           {[...Array(6)].map((data, idx) => {
             return (

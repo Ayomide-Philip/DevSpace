@@ -1,6 +1,11 @@
+import { auth } from "@/auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function LeftSideBar() {
+export default async function LeftSideBar() {
+  const session = await auth();
+  if (!session || !session.user) return redirect("/login");
+
   return (
     <div className="lg:flex justify-center flex-col py-3 hidden h-fit w-full gap-y-4">
       <div className="dark:bg-gray-800  bg-gray-200 p-3 rounded-xl">
@@ -10,7 +15,9 @@ export default function LeftSideBar() {
             src="/images/blank-profile-picture-973460_960_720.webp"
             className="h-20 w-20 rounded-full border border-gray-900 dark:border-gray-300"
           />
-          <h1 className="text-xl text-center font-bold">Areo Ayomide Philip</h1>
+          <h1 className="text-xl text-center font-bold">
+            {session?.user?.name}
+          </h1>
           <p className="text-sm dark:text-gray-300">Front-end Developer</p>
           <Link
             href="/profile"

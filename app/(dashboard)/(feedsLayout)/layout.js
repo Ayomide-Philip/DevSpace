@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import LeftSideBar from "@/componets/dashboard/feeds/leftSidebar";
 import RightSidebar from "@/componets/dashboard/feeds/rightSideBar";
+import {redirect} from "next/navigation";
 export default async function Layout({ children }) {
   const session = await auth();
   if (!session || !session?.user) return redirect("/login");
