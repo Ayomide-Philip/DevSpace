@@ -26,7 +26,7 @@ export default function ProfileIcon() {
               </Link>
             </li>
             <li className="px-4 py-3 hover:bg-gray-100 cursor-pointer transition-all">
-              <Link href="/settings" className="block">
+              <Link href="/profile/settings" className="block">
                 Settings
               </Link>
             </li>

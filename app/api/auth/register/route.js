@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import User from "@/libs/models/user.models";
 import { HashPassword } from "@/libs/utility/hashpassword";
 import ConnectToDatabase from "@/libs/database";
+import Profile from "@/libs/models/profiles.models";
 
 export async function POST(request) {
   const { email, password, username, name } = await request.json();
@@ -43,7 +44,7 @@ export async function POST(request) {
   }
 
   try {
-      await ConnectToDatabase();
+    await ConnectToDatabase();
     const existingEmail = await User.findOne({ email: email });
 
     if (existingEmail) {
@@ -73,8 +74,14 @@ export async function POST(request) {
       password: await HashPassword(password),
     });
 
+    const profile = await Profile.create({ user: user._id });
+
     return NextResponse.json(
-      { message: "User created Successfully", user: { id: user._id } },
+      {
+        message: "User created Successfully",
+        user: { id: user._id },
+        profile: { id: profile._id },
+      },
       {
         status: 200,
       }

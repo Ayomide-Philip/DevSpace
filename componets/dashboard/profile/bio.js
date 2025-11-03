@@ -6,14 +6,16 @@ import {
   Share,
   Twitter,
 } from "lucide-react";
-export default function ProfileBio() {
+export default function ProfileBio({ profile }) {
+  console.log(profile);
+  const { user, urls } = profile;
   return (
     <>
       <div className="mt-10 p-2 md:mt-0 md:pl-47">
         <div className="flex w-full px-2 flex-col sm:flex-row">
           <div className="flex flex-col flex-wrap items-center w-full sm:items-start">
             <div className="flex gap-3 justify-center items-center">
-              <h1 className="text-2xl font-semibold">Areo Ayomide</h1>
+              <h1 className="text-2xl font-semibold">{user?.name}</h1>
               {/* <button
                 type="button"
                 className="dark-rounded-button p-1!"
@@ -30,19 +32,19 @@ export default function ProfileBio() {
             <p className="font-[350]">Full-Stack Developer</p>
           </div>
           <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-            <a href={"#"} className="dark-rounded-button">
+            <a href={`${urls?.github}`} className="dark-rounded-button">
               <Twitter />
             </a>
-            <a href={"#"} className="dark-rounded-button">
+            <a href={`${urls?.twitter}`} className="dark-rounded-button">
               <Github />
             </a>
-            <a href={"#"} className="dark-rounded-button">
+            <a href={`${urls?.instagram}`} className="dark-rounded-button">
               <Instagram />
             </a>
-            <a href={"#"} className="dark-rounded-button">
+            <a href={`${urls?.linkedin}`} className="dark-rounded-button">
               <Linkedin />
             </a>
-            <a href={"#"} className="dark-rounded-button">
+            <a href={`${urls?.portfolio}`} className="dark-rounded-button">
               <Link />
             </a>
           </div>
@@ -109,11 +111,6 @@ export default function ProfileBio() {
               About Me
             </h1>
             <div className="font-normal px-2">
-              <div className="flex w-full h-full justify-center items-center font-[350]">
-                You don&apos;t have a bio yet
-              </div>
-            </div>
-            {/* <div className="font-normal px-2">
               {profile?.bio ? (
                 `${profile?.bio}`
               ) : (
@@ -121,7 +118,7 @@ export default function ProfileBio() {
                   You don&apos;t have a bio yet
                 </div>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
