@@ -6,7 +6,7 @@ import {
   Share,
   Twitter,
 } from "lucide-react";
-export default function ProfileBio({ profile }) {
+export default function ProfileBio({ profile, children }) {
   console.log(profile);
   const { user, urls } = profile;
   return (
@@ -106,20 +106,7 @@ export default function ProfileBio({ profile }) {
               </div>
             </div>
           </div>
-          <div className="flex flex-col bg-gray-100 p-3 rounded-xl gap-2  dark:bg-slate-700 dark:text-white">
-            <h1 className="text-lg font-semibold border-b border-b-gray-600 mb-2 ">
-              About Me
-            </h1>
-            <div className="font-normal px-2">
-              {profile?.bio ? (
-                `${profile?.bio}`
-              ) : (
-                <div className="flex w-full h-full justify-center items-center font-[350]">
-                  You don&apos;t have a bio yet
-                </div>
-              )}
-            </div>
-          </div>
+          {children}
         </div>
       </div>
     </>
