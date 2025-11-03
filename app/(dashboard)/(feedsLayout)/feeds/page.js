@@ -2,7 +2,7 @@ import FeedsCard from "@/componets/dashboard/feeds/feedcard";
 import { cookies } from "next/headers";
 
 export default async function Page() {
-  const posts = await fetch("http://localhost:3000/api/profile/all", {
+  const posts = await fetch("http://localhost:3000/api/posts/all", {
     headers: {
       Cookie: (await cookies()).toString(),
     },

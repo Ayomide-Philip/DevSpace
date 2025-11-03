@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Post from "@/libs/models/posts.models";
 import { auth } from "@/auth";
+import ConnectToDatabase from "@/libs/database";
 
 export const GET = auth(async function GET(req) {
   if (!req.auth || !req.auth.user)
@@ -8,6 +9,7 @@ export const GET = auth(async function GET(req) {
       status: 404,
       headers: { "content-type": "application/json" },
     });
+  await ConnectToDatabase();
   const posts = await Post.find();
   return new NextResponse(JSON.stringify({ posts }), {
     status: 200,

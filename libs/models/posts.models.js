@@ -50,5 +50,7 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
+postSchema.index({ userId: 1, title: 1 }, { unique: true });
+
 const Post = models.Post || model("Post", postSchema);
 export default Post;
