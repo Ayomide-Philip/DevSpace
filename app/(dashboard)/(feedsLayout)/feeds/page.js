@@ -1,9 +1,11 @@
 import { MessageCircleIcon, Share, ThumbsUp } from "lucide-react";
+import { cookies } from "next/headers";
 
 export default async function Page() {
   const posts = await fetch("http://localhost:3000/api/profile/all", {
-    method: "GET",
-    credentials: "include",
+    headers: {
+      Cookie: (await cookies()).toString(),
+    },
   });
   const post = await posts.json();
   console.log(post);
