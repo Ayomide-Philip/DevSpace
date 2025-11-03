@@ -1,6 +1,6 @@
 import { MessageCircleIcon, Share, ThumbsUp } from "lucide-react";
 export default function FeedsCard({ post }) {
-  const { userId, createdAt, content, image, likes, comments } = post;
+  const { userId, createdAt, content, image, likes, comments, title } = post;
   return (
     <div className="text-gray-900 w-full md:w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 flex-col">
       <div className="flex gap-2">
@@ -21,6 +21,7 @@ export default function FeedsCard({ post }) {
         </div>
       </div>
       <div className="flex flex-col">
+        <p className="font-bold md:text-xl"> {title} </p>
         <p className="p-1 mb-2 text-sm md:text-base">{content}</p>
         {image && (
           <img
