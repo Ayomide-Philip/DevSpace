@@ -6,10 +6,10 @@ export default async function Page() {
     headers: {
       Cookie: (await cookies()).toString(),
     },
+    cache: "no-store",
   });
   const data = await posts.json();
   const post = data.posts;
-  console.log(post);
 
   return (
     <div className="p-3 flex flex-col gap-4 w-full">
