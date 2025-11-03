@@ -1,6 +1,12 @@
 import { MessageCircleIcon, Share, ThumbsUp } from "lucide-react";
 
 export default async function Page() {
+  const posts = await fetch("http://localhost:3000/api/profile/all", {
+    method: "GET",
+    credentials: "include",
+  });
+  const post = await posts.json();
+  console.log(post);
   return (
     <div className="p-3 flex flex-col gap-4">
       <div className="text-sm self-center text-gray-900 w-full md:w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 items-center">
