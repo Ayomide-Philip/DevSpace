@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 export default function ProfileBio({ profile, children }) {
   console.log(profile);
-  const { user, urls } = profile;
+  const { user, urls, skills, tools } = profile;
   return (
     <>
       <div className="mt-10 p-2 md:mt-0 md:pl-47">
@@ -58,10 +58,7 @@ export default function ProfileBio({ profile, children }) {
                 Skills
               </h1>
               <div className="flex gap-3 flex-wrap">
-                <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
-                  Full-Stack Developer
-                </div>
-                {/* {profile?.skills && profile?.skill?.length !== 0 ? (
+                {profile?.skills && profile?.skills?.length !== 0 ? (
                   profile?.skills?.map((skill, idx) => {
                     return (
                       <div
@@ -76,7 +73,7 @@ export default function ProfileBio({ profile, children }) {
                   <div className="h-10 flex justify-center items-center w-full font-[350]">
                     No Skills yet
                   </div>
-                )} */}
+                )}
               </div>
             </div>
             <div className="flex flex-col gap-2 bg-gray-100 p-3 rounded-xl dark:bg-slate-700 dark:text-white">
@@ -84,10 +81,7 @@ export default function ProfileBio({ profile, children }) {
                 Tools
               </h1>
               <div className="flex gap-3 flex-wrap">
-                <div className="bg-green-500 p-1 px-3 rounded-xl text-sm">
-                  React
-                </div>
-                {/* {profile?.tools && profile?.tools?.length !== 0 ? (
+                {profile?.tools && profile?.tools?.length !== 0 ? (
                   profile?.tools?.map((tool, idx) => {
                     return (
                       <div
@@ -102,7 +96,7 @@ export default function ProfileBio({ profile, children }) {
                   <div className="h-10 flex justify-center items-center w-full font-[350]">
                     No tools yet
                   </div>
-                )} */}
+                )}
               </div>
             </div>
           </div>

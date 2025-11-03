@@ -12,6 +12,9 @@ const profilesSchema = new Schema(
       trim: true,
       default: "",
     },
+    category: {
+      type: String,
+    },
     skills: {
       type: [String],
       default: [],

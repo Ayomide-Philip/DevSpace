@@ -15,7 +15,7 @@ export const GET = auth(async function GET(req) {
     );
 
   const { id } = req.auth.user;
-  const profile = await Profile.findOne({ user: id }).populate("user","-password -email");
+  const profile = await Profile.findOne({ user: id }).populate("user","-password");
   return NextResponse.json(
     { profile: profile },
     {
