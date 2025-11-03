@@ -10,7 +10,7 @@ export const GET = auth(async function GET(req) {
       headers: { "content-type": "application/json" },
     });
   await ConnectToDatabase();
-  const posts = await Post.find();
+  const posts = await Post.find().populate("userId","-password -email");
   return new NextResponse(JSON.stringify({ posts }), {
     status: 200,
     headers: { "content-type": "application/json" },

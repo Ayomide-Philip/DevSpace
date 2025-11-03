@@ -1,5 +1,6 @@
 import { MessageCircleIcon, Share, ThumbsUp } from "lucide-react";
-export default function FeedsCard() {
+export default function FeedsCard({ post }) {
+  const { userId, createdAt, content, image, likes, comments } = post;
   return (
     <div className="text-gray-900 w-full md:w-lg dark:text-gray-200 bg-gray-200 dark:bg-gray-800 flex p-2 rounded-xl gap-2 flex-col">
       <div className="flex gap-2">
@@ -9,9 +10,9 @@ export default function FeedsCard() {
           className="w-10 h-10 rounded-full border border-gray-700"
         />
         <div className="flex flex-col">
-          <span className="md:text-[18px]">Areo Ayomide Philip</span>
+          <span className="md:text-[18px]">{userId?.name}</span>
           <span className="text-sm">
-            {new Date().toLocaleDateString("en-Us", {
+            {new Date(createdAt).toLocaleDateString("en-Us", {
               month: "short",
               day: "numeric",
               year: "numeric",
@@ -20,25 +21,22 @@ export default function FeedsCard() {
         </div>
       </div>
       <div className="flex flex-col">
-        <p className="p-1 mb-2 text-sm md:text-base">
-          Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore
-          Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore
-          Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore
-          Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore Lorem ipsum tore
-        </p>
-        <img
-          src="/images/background-image.jpg"
-          alt=""
-          className="rounded-xl h-[300px] object-cover"
-        />
+        <p className="p-1 mb-2 text-sm md:text-base">{content}</p>
+        {image && (
+          <img
+            src={image}
+            alt=""
+            className="rounded-xl h-[300px] object-cover"
+          />
+        )}
       </div>
       <div className="flex justify-between items-center px-3 py-2">
         <div className="flex gap-1 items-center justify-center">
-          <span className="text-sm">5</span>
+          <span className="text-sm">{likes.length}</span>
           <ThumbsUp fill="white" />
         </div>
         <div className="flex gap-1 items-center justify-center">
-          <span className="text-sm">5</span>
+          <span className="text-sm">{comments.length}</span>
           <MessageCircleIcon />
         </div>
         <div className="flex gap-1 items-center justify-center">
