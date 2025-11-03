@@ -1,5 +1,6 @@
 import FeedsCard from "@/componets/dashboard/feeds/feedcard";
 import { cookies } from "next/headers";
+import { BiError } from "react-icons/bi";
 
 export default async function Page() {
   const posts = await fetch("http://localhost:3000/api/posts/all", {
@@ -30,7 +31,12 @@ export default async function Page() {
 
       <div className="flex flex-col gap-3 items-center justify-center">
         {!post || post.length <= 0 ? (
-          <>No post</>
+          <div className="flex flex-col items-center justify-center w-full">
+            <span>
+              <BiError className="h-10 w-10" />
+            </span>
+            <h1 className="text-xl">No Post</h1>
+          </div>
         ) : (
           post.map((posts, idx) => {
             return <FeedsCard key={idx} post={posts} />;

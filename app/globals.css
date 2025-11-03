@@ -18,3 +18,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .dark-rounded-button {
+    @apply flex bg-black dark:bg-white text-white dark:text-black p-2 rounded-full border hover:bg-white hover:text-black hover:dark:text-white hover:dark:bg-black
+  }
+}

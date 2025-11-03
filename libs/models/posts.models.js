@@ -44,8 +44,8 @@ const postSchema = new Schema(
           },
         },
       ],
+      default: [],
     },
-    default: [],
   },
   { timestamps: true }
 );
