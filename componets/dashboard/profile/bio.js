@@ -7,7 +7,6 @@ import {
   Twitter,
 } from "lucide-react";
 export default function ProfileBio({ profile, children }) {
-  console.log(profile);
   const { user, urls, skills, tools } = profile;
   return (
     <>
@@ -29,22 +28,42 @@ export default function ProfileBio({ profile, children }) {
                 <Share className="w-4 h-4" />
               </button> */}
             </div>
-            <p className="font-[350]">Full-Stack Developer</p>
+            <p className="font-[350]">{profile?.category}</p>
           </div>
           <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-            <a href={`${urls?.github}`} className="dark-rounded-button">
+            <a
+              href={`${urls?.twitter}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
               <Twitter />
             </a>
-            <a href={`${urls?.twitter}`} className="dark-rounded-button">
+            <a
+              href={`${urls?.github}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
               <Github />
             </a>
-            <a href={`${urls?.instagram}`} className="dark-rounded-button">
+            <a
+              href={`${urls?.instagram}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
               <Instagram />
             </a>
-            <a href={`${urls?.linkedin}`} className="dark-rounded-button">
+            <a
+              href={`${urls?.linkedin}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
               <Linkedin />
             </a>
-            <a href={`${urls?.portfolio}`} className="dark-rounded-button">
+            <a
+              href={`${urls?.portfolio}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
               <Link />
             </a>
           </div>
@@ -58,8 +77,8 @@ export default function ProfileBio({ profile, children }) {
                 Skills
               </h1>
               <div className="flex gap-3 flex-wrap">
-                {profile?.skills && profile?.skills?.length !== 0 ? (
-                  profile?.skills?.map((skill, idx) => {
+                {skills && skills?.length !== 0 ? (
+                  skills?.map((skill, idx) => {
                     return (
                       <div
                         className="bg-green-500 p-1 px-3 rounded-xl text-sm"
@@ -81,8 +100,8 @@ export default function ProfileBio({ profile, children }) {
                 Tools
               </h1>
               <div className="flex gap-3 flex-wrap">
-                {profile?.tools && profile?.tools?.length !== 0 ? (
-                  profile?.tools?.map((tool, idx) => {
+                {tools && tools?.length !== 0 ? (
+                  tools?.map((tool, idx) => {
                     return (
                       <div
                         className="bg-green-500 p-1 px-3 rounded-xl text-sm"

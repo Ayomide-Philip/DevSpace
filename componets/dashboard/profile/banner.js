@@ -1,4 +1,4 @@
-export default function ProfileBanner() {
+export default function ProfileBanner({ profile }) {
   return (
     <div className="flex w-full relative">
       <div className="flex w-full relative">

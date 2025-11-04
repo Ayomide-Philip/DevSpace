@@ -12,7 +12,7 @@ export default async function Layout({ children }) {
   const { profile } = data;
   return (
     <div className="flex w-full flex-col gap-2 pb-5 bg-white dark:bg-slate-800 dark:text-white text-black">
-      <ProfileBanner />
+      <ProfileBanner profile={profile} />
       <ProfileBio profile={profile}>{children}</ProfileBio>
     </div>
   );

@@ -2,11 +2,11 @@ import Form from "next/form";
 import FormSkills from "./form/skills";
 import FormTools from "./form/tools";
 import FormSocialMediaUrl from "./form/socialMedia";
+import SettingsAction from "@/app/(dashboard)/profile/(profileLayout)/settings/action";
 export default function ProfileForm({ profile }) {
-  console.log(profile);
-  const { user, bio, urls, skills, tools } = profile;
+  const { user, bio, urls, skills, tools, category } = profile;
   return (
-    <Form>
+    <Form action={SettingsAction}>
       <div className="mb-5">
         <label
           htmlFor="name"
@@ -55,7 +55,7 @@ export default function ProfileForm({ profile }) {
           name="category"
           id="category"
           placeholder="Enter your category"
-          //   defaultValue={profile?.role}
+          defaultValue={category}
           className={`w-full rounded-md border bg-white py-3 px-6 text-base font-medium text-black outline-none focus:shadow-md resize-none border-[#e0e0e0] focus:border-blue-600`}
           required
         />
@@ -77,7 +77,7 @@ export default function ProfileForm({ profile }) {
           placeholder="Enter your bio"
           rows={5}
           className={`w-full rounded-md border bg-white py-3 px-6 text-base font-medium text-black outline-none focus:shadow-md resize-none border-[#e0e0e0] focus:border-blue-600`}
-          //   defaultValue={profile?.bio}
+          defaultValue={bio}
           required
         />
         {/* {errors.bio && (
