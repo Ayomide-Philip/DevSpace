@@ -14,6 +14,7 @@ const profilesSchema = new Schema(
     },
     category: {
       type: String,
+      default: "",
     },
     skills: {
       type: [String],

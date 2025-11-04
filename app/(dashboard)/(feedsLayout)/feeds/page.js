@@ -1,9 +1,10 @@
 import FeedsCard from "@/componets/dashboard/feeds/feedcard";
 import { cookies } from "next/headers";
 import { BiError } from "react-icons/bi";
+import {NEXT_URL} from "@/libs/env.config";
 
 export default async function Page() {
-  const posts = await fetch("http://localhost:3000/api/posts/all", {
+  const posts = await fetch(`${NEXT_URL}/api/posts/all`, {
     headers: {
       Cookie: (await cookies()).toString(),
     },

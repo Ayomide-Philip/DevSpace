@@ -1,4 +1,7 @@
 import Form from "next/form";
+import FormSkills from "./form/skills";
+import FormTools from "./form/tools";
+import FormSocialMediaUrl from "./form/socialMedia";
 export default function ProfileForm({ profile }) {
   console.log(profile);
   const { user, bio, urls, skills, tools } = profile;
@@ -82,6 +85,11 @@ export default function ProfileForm({ profile }) {
         )} */}
       </div>
 
+      <FormSkills skills={skills} />
+
+      <FormTools tools={tools} />
+
+      <FormSocialMediaUrl urls={urls} />
       <div>
         <button
           type="submit"
