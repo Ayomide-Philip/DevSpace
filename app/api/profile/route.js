@@ -74,7 +74,7 @@ export const PATCH = auth(async function PATCH(req) {
       edited = true;
     }
 
-    if (skills.length > 0) {
+    if (skills.length <= 0) {
       profile.skills = [];
       edited = true;
     }
@@ -84,7 +84,7 @@ export const PATCH = auth(async function PATCH(req) {
       edited = true;
     }
 
-    if (tools.length > 0) {
+    if (tools.length <= 0) {
       profile.tools = [];
       edited = true;
     }
