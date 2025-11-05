@@ -38,6 +38,4 @@ export default async function SettingsAction(formData) {
   if (request.ok) {
     redirect("/profile");
   }
-
-
 }

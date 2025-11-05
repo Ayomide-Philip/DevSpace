@@ -21,6 +21,6 @@ body {
 
 @layer components {
   .dark-rounded-button {
-    @apply flex bg-black dark:bg-white text-white dark:text-black p-2 rounded-full border hover:bg-white hover:text-black hover:dark:text-white hover:dark:bg-black
+    @apply flex bg-black dark:bg-white text-white dark:text-black p-2 rounded-full border hover:bg-white hover:text-black hover:dark:text-white hover:dark:bg-black cursor-pointer
   }
 }

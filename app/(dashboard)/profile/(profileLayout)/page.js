@@ -28,7 +28,7 @@ export default async function Page() {
           </div>
         </div>
       </ProfileBio>
-      <div className="py-4 px-3 sm:px-10">
+      <div className="py-4 px-3 sm:px-10 mb-20">
         <h1 className="font-semibold text-2xl text-center mb-5">
           Recent Projects
         </h1>
