@@ -1,5 +1,4 @@
 import ProfileBanner from "@/componets/dashboard/profile/banner";
-import ProfileBio from "@/componets/dashboard/profile/bio";
 import { NEXT_URL } from "@/libs/env.config";
 import { cookies } from "next/headers";
 export default async function Layout({ children }) {

@@ -7,7 +7,12 @@ import {
   Twitter,
 } from "lucide-react";
 export default function ProfileBio({ profile, children }) {
-  const { user, urls, skills, tools } = profile;
+  const {
+    user,
+    urls: { twitter, github, instagram, linkedin, portfolio },
+    skills,
+    tools,
+  } = profile;
   return (
     <>
       <div className="mt-10 p-2 md:mt-0 md:pl-47">
@@ -31,41 +36,51 @@ export default function ProfileBio({ profile, children }) {
             <p className="font-[350]">{profile?.category}</p>
           </div>
           <div className="flex justify-center sm:justify-end-safe gap-3 p-2">
-            <a
-              href={`${urls?.twitter}`}
-              target="_blank"
-              className="dark-rounded-button"
-            >
-              <Twitter />
-            </a>
-            <a
-              href={`${urls?.github}`}
-              target="_blank"
-              className="dark-rounded-button"
-            >
-              <Github />
-            </a>
-            <a
-              href={`${urls?.instagram}`}
-              target="_blank"
-              className="dark-rounded-button"
-            >
-              <Instagram />
-            </a>
-            <a
-              href={`${urls?.linkedin}`}
-              target="_blank"
-              className="dark-rounded-button"
-            >
-              <Linkedin />
-            </a>
-            <a
-              href={`${urls?.portfolio}`}
-              target="_blank"
-              className="dark-rounded-button"
-            >
-              <Link />
-            </a>
+            {twitter && (
+              <a
+                href={`${twitter}`}
+                target="_blank"
+                className="dark-rounded-button"
+              >
+                <Twitter />
+              </a>
+            )}
+            {github && (
+              <a
+                href={`${github}`}
+                target="_blank"
+                className="dark-rounded-button"
+              >
+                <Github />
+              </a>
+            )}
+            {instagram && (
+              <a
+                href={`${instagram}`}
+                target="_blank"
+                className="dark-rounded-button"
+              >
+                <Instagram />
+              </a>
+            )}
+            {linkedin && (
+              <a
+                href={`${linkedin}`}
+                target="_blank"
+                className="dark-rounded-button"
+              >
+                <Linkedin />
+              </a>
+            )}
+            {portfolio && (
+              <a
+                href={`${portfolio}`}
+                target="_blank"
+                className="dark-rounded-button"
+              >
+                <Link />
+              </a>
+            )}
           </div>
         </div>
       </div>
