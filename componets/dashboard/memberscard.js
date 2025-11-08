@@ -22,10 +22,12 @@ export default function MembersCard({ profiles }) {
       <div className="pl-22 md:pl-25 mt-1 flex justify-between items-center pr-3">
         <div className="flex flex-col">
           <h1 className="text-base md:text-xl font-bold">{user?.name}</h1>
-          {category && (
+          {category ? (
             <span className="text-[12px] md:text-[13px] capitalize">
               {category}
             </span>
+          ) : (
+            <div className="mb-5 md:mb-4" />
           )}
         </div>
         <div className="flex">
@@ -34,13 +36,13 @@ export default function MembersCard({ profiles }) {
       </div>
       <div className="flex flex-col gap-2 px-4 mt-2">
         {bio ? (
-          <p className="text-sm md:text-base">{bio}</p>
+          <p className="text-sm md:text-[18px]">{bio}</p>
         ) : (
-          <div className="h-30"></div>
+          <div className="flex justify-center items-center">No bio Yet</div>
         )}
         <div className="flex justify-end">
           <Link
-            href="#"
+            href={`/profile/${user?._id}`}
             className="bg-blue-600 text-sm text-white hover:bg-blue-800 px-4 py-2 rounded-2xl"
           >
             View Profile
