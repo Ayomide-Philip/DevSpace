@@ -46,15 +46,15 @@ export default function ProfileBio({ profile, children }) {
                 <Twitter />
               </a>
             )}
-            {github && (
-              <a
-                href={`${github}`}
-                target="_blank"
-                className="dark-rounded-button"
-              >
-                <Github />
-              </a>
-            )}
+
+            <a
+              href={`${github}`}
+              target="_blank"
+              className="dark-rounded-button"
+            >
+              <Github />
+            </a>
+
             {instagram && (
               <a
                 href={`${instagram}`}
@@ -120,7 +120,7 @@ export default function ProfileBio({ profile, children }) {
                   tools?.map((tool, idx) => {
                     return (
                       <div
-                        className="bg-blue-500 p-1 px-3 rounded-xl text-sm flex gap-1 justify-center items-center"
+                        className="bg-blue-500 p-1 px-3 rounded-xl text-sm flex gap-1 justify-center items-center capitalize"
                         key={idx}
                       >
                         {generateIcon({ name: tool.toLowerCase() })}
