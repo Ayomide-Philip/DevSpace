@@ -2,6 +2,7 @@ import { Github, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 import { NEXT_URL } from "@/libs/env.config";
 import { cookies } from "next/headers";
 import NotFound from "next/dist/client/components/builtin/not-found";
+import ShareTools from "@/componets/root/share/tools";
 export default async function Page({ params }) {
   const { id } = await params;
   const data = await fetch(`${NEXT_URL}/api/profile/${id}`, {
@@ -107,27 +108,7 @@ export default async function Page({ params }) {
             </div>
           )}
         </div>
-        <div className="flex flex-col px-4 gap-2">
-          <h1 className="font-semibold text-xl">Tools</h1>
-          {tools.length > 0 ? (
-            <div className="flex gap-3 flex-wrap">
-              {tools.map((tool, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    className="bg-blue-400 p-1 px-3 rounded-xl text-sm"
-                  >
-                    {tool}
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="h-15 flex justify-center items-center">
-              <p className="text-base font-light">No tools added yet</p>
-            </div>
-          )}
-        </div>
+        <ShareTools tools={tools} />
         <div className="flex px-4 py-2 justify-between mt-2  w-full flex-wrap gap-3">
           <a className="py-3 w-full md:w-1/3  bg-white text-center text-black cursor-pointer rounded-xl border border-black hover:border-white hover:bg-black hover:text-white font-semibold">
             Get in Touch

@@ -1,3 +1,4 @@
+import generateIcon from "@/libs/generateIcon";
 import {
   Github,
   Instagram,
@@ -119,9 +120,10 @@ export default function ProfileBio({ profile, children }) {
                   tools?.map((tool, idx) => {
                     return (
                       <div
-                        className="bg-green-500 p-1 px-3 rounded-xl text-sm"
+                        className="bg-blue-500 p-1 px-3 rounded-xl text-sm flex gap-1 justify-center items-center"
                         key={idx}
                       >
+                        {generateIcon({ name: tool.toLowerCase() })}
                         {tool}
                       </div>
                     );
