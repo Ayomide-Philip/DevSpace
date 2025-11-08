@@ -124,7 +124,7 @@ export default function ProfileBio({ profile, children }) {
                         key={idx}
                       >
                         {generateIcon({ name: tool.toLowerCase() })}
-                        {tool}
+                        {tool.toLowerCase()}
                       </div>
                     );
                   })
