@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import Profile from "@/libs/models/profiles.models";
+import ConnectToDatabase from "@/libs/database";
 
 export const GET = auth(async function GET(req) {
   if (!req.auth || !req.auth.user)
@@ -13,7 +14,7 @@ export const GET = auth(async function GET(req) {
         },
       }
     );
-
+await ConnectToDatabase();
   const { id } = req.auth.user;
   const profile = await Profile.findOne({ user: id }).populate(
     "user",
