@@ -27,7 +27,7 @@ import {
 
 const defaultIcons = [
   { name: "html", icon: FaHtml5 },
-  { name: "css", FaCss3 },
+  { name: "css", icon: FaCss3 },
   { name: "javascript", icon: RiJavascriptFill },
   { name: "react", icon: FaReact },
   { name: "tailwindcss", icon: RiTailwindCssFill },
